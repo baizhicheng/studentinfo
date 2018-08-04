@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+<constant name="struts.multipart.maxSize" value="20971520000" />
+	<package name="studentinfo" extends="struts-default">
+		<!--  配置拦截器 -->
+		<interceptors>
+			<interceptor name="stringTrimInterceptor" class="it.studentinfo.util.StringTrimInterceptor" />
+			<interceptor-stack name="studentinfoStack">
+				<interceptor-ref name="stringTrimInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<action name="studentAction_*" class="it.studentinfo.action.StudentAction"
+			method="{1}">
+			<result name="index" type="redirect">/index.jsp</result>
+			<result name="input">/error.jsp</result>
+			<result name="saveStudent" >/saveStudent.jsp</result>
+			<result name="deleteStudent" >/deleteStudent.jsp</result>
+			<result name="queryStudent" >/queryStudent.jsp</result>
+			<result name="updateStudent2">/updateStudent2.jsp</result>
+			<interceptor-ref name="studentinfoStack" />
+		</action>
+	</package>
+</struts>    

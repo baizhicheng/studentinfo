@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC  "-//Apache Struts//XWork Validator 1.0.2//EN" 
+"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd" >
+<validators>
+	<field name="student.stuname">
+		<field-validator type="requiredstring">
+			<message>学生姓名不能为空</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">4</param>
+			<message>学生姓名长度必须在${minLength}~${maxLength}之间</message>
+		</field-validator>
+	</field>
+	<field name="student.stuage">  
+        <field-validator type="int">  
+            <param name="min">1</param>  
+            <param name="max">100</param>  
+            <message>年龄必须在${min}~${max}之间</message>  
+        </field-validator>  
+    </field>  
+
+</validators>
